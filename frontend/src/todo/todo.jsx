@@ -17,6 +17,7 @@ export default class Todo extends Component{
         this.handleRemove = this.handleRemove.bind(this)
         this.handleMarkAsPending = this.handleMarkAsPending.bind(this)
         this.handleMarkAsDone = this.handleMarkAsDone.bind(this)
+        this.handleClear = this.handleClear.bind(this)
 
 
         this.refresh()
@@ -33,6 +34,10 @@ export default class Todo extends Component{
 
     handleChange(e){
         this.setState({...this.state, description: e.target.value})
+    }
+    handleClear(){
+        this.refresh()
+        
     }
 
     handleAdd(){
@@ -62,6 +67,7 @@ export default class Todo extends Component{
                 handleChange={this.handleChange}
                 handleAdd={this.handleAdd}
                 handleSearch={this.handleSearch}
+                handleClear={this.handleClear}
                 />
                 <TodoList list={this.state.list}
                 handleMarkAsDone={this.handleMarkAsDone}
